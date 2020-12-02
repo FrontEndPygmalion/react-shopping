@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Header from '../components/Header'
 import InputItems from '../components/InputItems'
 import ListaCompras from '../components/ListaCompras'
 
@@ -15,7 +14,6 @@ const PageListaCompras = () => {
 
     return (
         <>
-            <Header />
             <div className="container">
                 <h1> Lista de compras</h1>
                 <InputItems onSubmit={agregarItems} />
