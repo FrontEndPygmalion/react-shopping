@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Product from '../components/Product'
 
 let dataProducts = [
@@ -18,7 +19,7 @@ let dataProducts = [
         name: 'Chocolate',
         image: 'https://i2.wp.com/www.adelantosdigital.com/web/wp-content/uploads/2017/01/chocolate-port.jpg?resize=720%2C405&ssl=1',
         description: 'Delicioso chocolate'
-    }, 
+    },
     {
         id: 4,
         name: 'Galletas',
@@ -30,10 +31,25 @@ let dataProducts = [
 
 
 const Products = () => {
+
+    const [personajes, setPersonajes] = useState([])
+
+
+    const getData = async () => {
+        let reponse = await fetch('https://rickandmortyapi.com/api/character')
+        let data = await reponse.json()
+        console.log(data)
+        setPersonajes(data.results)
+    }
+
+    useEffect(() => {
+            getData()
+    }, [getData])
+
     return (
         <div className="row">
             {
-                dataProducts.map((producto) =>
+                personajes.map((producto) =>
                     <Product key={producto.id} productData={producto} />
                 )
             }
