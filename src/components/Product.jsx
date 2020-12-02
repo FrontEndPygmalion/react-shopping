@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-const Product = (props) => {
+const Product = ({productData}) => {
+    const {image, name, description} = productData // desestructuracion de objeto productData
     const [cantidad, modificarCantidad] = useState(0)
 
     useEffect(() => {
@@ -11,14 +12,14 @@ const Product = (props) => {
     return (
         <>
             <div className='col-4' style={{ 'border': '1px solid gray' }} >
-                <img src={props.productData.image}
+                <img src={image}
                     height='200px'
 
                     className="card-img-top"
                     alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title">{props.productData.name} ({cantidad})</h5>
-                    <p className="card-text">{props.productData.description}</p>
+                    <h5 className="card-title">{name} ({cantidad})</h5>
+                    <p className="card-text">{description}</p>
                     <button
                         onClick={() => modificarCantidad(cantidad + 1)}
                         className="btn btn-primary">Comprar</button>
