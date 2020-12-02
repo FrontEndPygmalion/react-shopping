@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react'
 
-const Product = () => {
-    const [cantidadArepas, modificarCantidadArepas] = useState(0)
+const Product = (props) => {
+    const [cantidad, modificarCantidad] = useState(0)
 
     useEffect(() => {
-        document.title = `has comprado ${cantidadArepas} arepas`
+        document.title = `has comprado ${cantidad} arepas`
     }
     )
 
-
-
     return (
         <>
-            <div className='col-4' >
-                <div>
-                    <img src="https://www.pequerecetas.com/wp-content/uploads/2019/10/arepas-receta-768x523.jpg"
-                        className="card-img-top"
-                        alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">Arepas</h5>
-                        <p className="card-text">Deliciosas arepas de bello.</p>
-                        <button
-                            onClick={() => modificarCantidadArepas(cantidadArepas + 1)}
-                            className="btn btn-primary">Comprar</button>
-                    </div>
+            <div className='col-4' style={{ 'border': '1px solid gray' }} >
+                <img src={props.productData.image}
+                    height='200px'
+
+                    className="card-img-top"
+                    alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{props.productData.name} ({cantidad})</h5>
+                    <p className="card-text">{props.productData.description}</p>
+                    <button
+                        onClick={() => modificarCantidad(cantidad + 1)}
+                        className="btn btn-primary">Comprar</button>
+
                 </div>
-            </div>
-            <div className="col-4">
-                <h2>
-                    {cantidadArepas}
-                </h2>
             </div>
         </>
     )
