@@ -36,10 +36,10 @@ const Products = () => {
 
 
     const getData = async () => {
-        let reponse = await fetch('https://rickandmortyapi.com/api/character')
+        let reponse = await fetch('https://breakingbadapi.com/api/characters')
         let data = await reponse.json()
         console.log(data)
-        setPersonajes(data.results)
+        setPersonajes(data)
     }
 
     useEffect(() => {
