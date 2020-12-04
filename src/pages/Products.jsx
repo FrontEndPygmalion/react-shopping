@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Product from '../components/Product'
 
-let dataProducts = [
+let data = [
     {
         id: 1,
         name: 'Arepa',
@@ -32,28 +32,56 @@ let dataProducts = [
 
 const Products = () => {
 
-    const [personajes, setPersonajes] = useState([])
+    const [productos, setProductos] = useState([])
+    const [query, setQuery] = useState('')
 
 
     const getData = async () => {
         let reponse = await fetch('https://breakingbadapi.com/api/characters')
         let data = await reponse.json()
         console.log(data)
-        setPersonajes(data)
+        setProductos(data)
     }
 
-    useEffect(() => {
-            getData()
-    }, [getData])
+    useEffect(()=>{
+        // getData()
+        setProductos(data)
+    },[getData])
+
+    let filtered = productos.filter((producto) => {
+            console.log(producto)
+        return  producto.name.toLowerCase().includes(query.toLowerCase())  })
 
     return (
-        <div className="row">
-            {
-                personajes.map((producto) =>
-                    <Product key={producto.id} productData={producto} />
-                )
-            }
-        </div>
+        <>
+            <div className="container">
+                <div className="row mb-4 mt-4">
+                    <div className="col-4">
+                        <input
+                            className="form-control"
+                            type="text"
+                            value = {query}
+                            onChange = {
+                                (event) => {
+                                    setQuery(event.target.value)
+                                    console.log(filtered)
+                                }
+                            }
+                            placeholder="Busca productos" />
+                    </div>
+                    <div className="col-2">
+                        <button className="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+                <div className="row">
+                    {
+                        filtered.map((producto) =>
+                            <Product key={producto.id} productData={producto} />
+                        )
+                    }
+                </div>
+            </div>
+        </>
     )
 }
 export default Products

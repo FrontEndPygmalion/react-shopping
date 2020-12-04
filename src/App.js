@@ -11,7 +11,7 @@ function App() {
             <Switch>
                 <Layout>
                     <Route path="/productos" component={Products} />
-                    <Route path="/lista-compras" component={PageListaCompras} />
+                    <Route path="/carrito-compras" component={PageListaCompras} />
                 </Layout>
             </Switch>
         </BrowserRouter>

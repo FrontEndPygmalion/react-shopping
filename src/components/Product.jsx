@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const Product = ({productData}) => {
-    const { img, name, nickname} = productData // desestructuracion de objeto productData
+    const { image, name, description} = productData // desestructuracion de objeto productData
     const [cantidad, modificarCantidad] = useState(0)
 
     useEffect(() => {
@@ -12,14 +12,14 @@ const Product = ({productData}) => {
     return (
         <>
             <div className='col-4' style={{ 'border': '1px solid gray' }} >
-                <img src={img}
+                <img src={image}
                     height='200px'
-                    width = 'auto'
+                    width = 'auto '
                     className="card-img-top"
                     alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{name} ({cantidad})</h5>
-                    <p className="card-text">{nickname}</p>
+                    <p className="card-text">{description}</p>
                     <button
                         onClick={() => modificarCantidad(cantidad + 1)}
                         className="btn btn-primary">Comprar</button>
