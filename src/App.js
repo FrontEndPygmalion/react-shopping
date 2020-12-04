@@ -10,8 +10,9 @@ function App() {
         <BrowserRouter>
             <Switch>
                 <Layout>
-                    <Route path="/productos" component={Products} />
-                    <Route path="/carrito-compras" component={PageListaCompras} />
+                    <Route exact path="/" component={Products} />
+                    <Route exact path="/productos" component={Products} />
+                    <Route exact path="/carrito-compras" component={PageListaCompras} />
                 </Layout>
             </Switch>
         </BrowserRouter>

@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import './styles/Header.css'
 
 function Header() {
+
+    const isLoggedIn = true
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">React Shopping</Link>
@@ -20,8 +24,16 @@ function Header() {
                         <Link className="nav-link" to="/carrito-compras">
                             Carrito de compras
                          <span className="fas fa-shopping-cart"></span>
-                         <span className="shopping-cart" > 1</span>
+                            <span className="shopping-cart" > 1</span>
                         </Link>
+                    </li>
+                    <li className="nav-item">
+                        {
+                            isLoggedIn ?
+                                <Link className="nav-link"> Bienvenido fulanito</Link>
+                                :
+                                <Link className="nav-link"> Iniciar Sesion</Link>
+                        }
 
                     </li>
                 </ul>
