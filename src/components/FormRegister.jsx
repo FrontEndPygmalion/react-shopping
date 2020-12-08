@@ -55,7 +55,7 @@ const FormRegister = (props) => {
                     className="form-control form-control-user"
                     id="exampleInputEmail"
                     name="email"
-                    value = {formulario.}
+                    value = {formulario.email}
                     onChange={handleInputChange}
                     placeholder="Email Address" />
             </div>
@@ -67,7 +67,7 @@ const FormRegister = (props) => {
                         className="form-control form-control-user"
                         id="exampleInputPassword"
                         name="password"
-                        value = {formulario.}
+                        value = {formulario.pasword}
                         onChange={handleInputChange}
                         placeholder="Password" />
                 </div>
@@ -77,7 +77,7 @@ const FormRegister = (props) => {
                         className="form-control form-control-user"
                         id="exampleRepeatPassword"
                         name="repeatPassword"
-                        value = {formulario.}
+                        value = {formulario.repeatPassword}
                         onChange={handleInputChange}
                         placeholder="Repeat Password" />
                 </div>
