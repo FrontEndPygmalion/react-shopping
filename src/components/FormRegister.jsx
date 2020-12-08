@@ -2,18 +2,25 @@ import React, { useState } from 'react'
 
 const FormRegister = (props) => {
 
-    const [formulario, setFormulario] = useState({})
+    const [formulario, setFormulario] = useState({
+        'name': '',
+        'lastName': '',
+        'email': '',
+        'pasword': '',
+        'repeatPassword': '',
+    })
 
     const handleInputChange = (evento) => {
         setFormulario(
             {
-                [evento.target.name]: evento.target.value, ...formulario
+                ...formulario,
+                [evento.target.name]: evento.target.value
             }
         )
     }
 
     const sendForm = (evento) => {
-        evento.preventDefault()
+        evento.preventDefault() // evita que se recargue la pagina
         props.handleSubmit(formulario)
     }
 
@@ -27,6 +34,7 @@ const FormRegister = (props) => {
                         className="form-control form-control-user"
                         id="exampleFirstName"
                         name="name"
+                        value={formulario.name}
                         onChange={handleInputChange}
                         placeholder="First Name" />
                 </div>
@@ -36,6 +44,7 @@ const FormRegister = (props) => {
                         className="form-control form-control-user"
                         id="exampleLastName"
                         name="lastName"
+                        value = {formulario.lastName}
                         onChange={handleInputChange}
                         placeholder="Last Name" />
                 </div>
@@ -46,6 +55,7 @@ const FormRegister = (props) => {
                     className="form-control form-control-user"
                     id="exampleInputEmail"
                     name="email"
+                    value = {formulario.}
                     onChange={handleInputChange}
                     placeholder="Email Address" />
             </div>
@@ -57,6 +67,7 @@ const FormRegister = (props) => {
                         className="form-control form-control-user"
                         id="exampleInputPassword"
                         name="password"
+                        value = {formulario.}
                         onChange={handleInputChange}
                         placeholder="Password" />
                 </div>
@@ -65,7 +76,8 @@ const FormRegister = (props) => {
                     <input type="password"
                         className="form-control form-control-user"
                         id="exampleRepeatPassword"
-                        name="password"
+                        name="repeatPassword"
+                        value = {formulario.}
                         onChange={handleInputChange}
                         placeholder="Repeat Password" />
                 </div>
