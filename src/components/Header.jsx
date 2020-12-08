@@ -27,12 +27,18 @@ function Header() {
                             <span className="shopping-cart" > 1</span>
                         </Link>
                     </li>
+
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/registrarse">
+                            Registrarse
+                        </Link>
+                    </li>
                     <li className="nav-item">
                         {
                             isLoggedIn ?
-                                <Link className="nav-link"> Bienvenido fulanito</Link>
+                                <Link className="nav-link" to="/perfil"> Bienvenido fulanito</Link>
                                 :
-                                <Link className="nav-link"> Iniciar Sesion</Link>
+                                <Link className="nav-link" to='/iniciar-sesion'> Iniciar Sesion</Link>
                         }
 
                     </li>
